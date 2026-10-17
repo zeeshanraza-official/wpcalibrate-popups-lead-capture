@@ -1,0 +1,169 @@
+/* WPCalibrate Popups Frontend Runtime Stylesheet */
+
+:root {
+    --wpcal-popup-width: 580px;
+    --wpcal-popup-max-width: 92%;
+    --wpcal-popup-padding: 32px;
+    --wpcal-popup-bg: #ffffff;
+    --wpcal-popup-text: #1e293b;
+    --wpcal-popup-radius: 12px;
+    --wpcal-popup-overlay: rgba(15, 23, 42, 0.65);
+    --wpcal-popup-close-color: #64748b;
+}
+
+body.wpcal-scroll-locked {
+    overflow: hidden !important;
+}
+
+/* Modal Overlay Wrapper */
+.wpcal-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--wpcal-popup-overlay);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.wpcal-popup-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Vertical alignments */
+.wpcal-popup-overlay.wpcal-valign-top {
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.wpcal-popup-overlay.wpcal-valign-bottom {
+    align-items: flex-end;
+    padding-bottom: 50px;
+}
+
+/* Dialog Container */
+.wpcal-popup-dialog {
+    position: relative;
+    width: var(--wpcal-popup-width);
+    max-width: var(--wpcal-popup-max-width);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background-color: var(--wpcal-popup-bg);
+    color: var(--wpcal-popup-text);
+    border-radius: var(--wpcal-popup-radius);
+    padding: var(--wpcal-popup-padding);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transform: scale(0.9);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.wpcal-popup-overlay.is-active .wpcal-popup-dialog {
+    transform: scale(1);
+}
+
+/* Animations */
+.wpcal-popup-overlay[data-animation="fade_in"] .wpcal-popup-dialog {
+    transform: none;
+}
+
+.wpcal-popup-overlay[data-animation="slide_down"] .wpcal-popup-dialog {
+    transform: translateY(-40px);
+}
+.wpcal-popup-overlay.is-active[data-animation="slide_down"] .wpcal-popup-dialog {
+    transform: translateY(0);
+}
+
+.wpcal-popup-overlay[data-animation="slide_up"] .wpcal-popup-dialog {
+    transform: translateY(40px);
+}
+.wpcal-popup-overlay.is-active[data-animation="slide_up"] .wpcal-popup-dialog {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.wpcal-close-btn {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: var(--wpcal-popup-close-color);
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    border-radius: 50%;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    z-index: 10;
+}
+
+.wpcal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #0f172a;
+}
+
+.wpcal-close-btn:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Close button positioning */
+.wpcal-close-inside_top_right {
+    top: 12px;
+    right: 12px;
+}
+
+.wpcal-close-inside_top_left {
+    top: 12px;
+    left: 12px;
+}
+
+.wpcal-close-outside_top_right {
+    top: -44px;
+    right: 0;
+    color: #ffffff;
+}
+
+/* Popup Content Wrapper */
+.wpcal-popup-body {
+    width: 100%;
+}
+
+.wpcal-popup-body img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .wpcal-popup-overlay,
+    .wpcal-popup-dialog,
+    .wpcal-close-btn,
+    .wpcal-submit-btn {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile responsive constraints */
+@media (max-width: 480px) {
+    .wpcal-popup-dialog {
+        padding: 20px;
+        max-width: 96%;
+    }
+}

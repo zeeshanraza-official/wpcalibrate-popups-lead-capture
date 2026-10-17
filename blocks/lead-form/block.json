@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wpcalibrate/lead-form",
+  "version": "1.0.0",
+  "title": "Popup Lead Form",
+  "category": "widgets",
+  "icon": "feedback",
+  "description": "Capture visitor emails and contact info with customizable form fields and native validation.",
+  "keywords": ["lead", "form", "popup", "contact", "email", "wpcalibrate"],
+  "textdomain": "wpcalibrate-popups-lead-capture",
+  "attributes": {
+    "fields": {
+      "type": "array",
+      "default": [
+        {
+          "type": "text",
+          "key": "first_name",
+          "label": "First Name",
+          "placeholder": "Enter your first name",
+          "required": true,
+          "width": "100"
+        },
+        {
+          "type": "email",
+          "key": "email",
+          "label": "Email Address",
+          "placeholder": "Enter your email address",
+          "required": true,
+          "width": "100"
+        }
+      ]
+    },
+    "submitButtonText": {
+      "type": "string",
+      "default": "Subscribe Now"
+    },
+    "submitButtonColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "submitButtonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "successMessage": {
+      "type": "string",
+      "default": "Thank you! Your information has been submitted successfully."
+    },
+    "consentText": {
+      "type": "string",
+      "default": "I agree to receive updates and agree to the privacy policy."
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "wpcal-lead-form-editor",
+  "editorStyle": "wpcal-lead-form-editor-css",
+  "style": "wpcal-lead-form-style"
+}

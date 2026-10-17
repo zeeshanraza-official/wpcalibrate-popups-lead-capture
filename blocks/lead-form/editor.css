@@ -1,0 +1,11 @@
+/* Lead Form Editor Styling */
+.wpcal-lead-form-editor-wrapper {
+    margin: 20px 0;
+    font-family: inherit;
+}
+
+.wpcal-form-fields-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}

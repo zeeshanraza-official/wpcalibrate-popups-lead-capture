@@ -1,0 +1,11 @@
+/* Campaign Gutenberg Editor Stylesheet */
+.wpcal-editor-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #e2e8f0;
+    color: #475569;
+}
